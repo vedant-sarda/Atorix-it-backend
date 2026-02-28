@@ -32,7 +32,7 @@ function getStartDate(range) {
    1. Lead Status Distribution
 ======================================== */
 
-router.get("/leads-status", authenticate, async (req, res) => {
+router.get("/leads-status",  async (req, res) => {
   try {
     const range = req.query.range || "month";
     const startDate = getStartDate(range);
@@ -106,7 +106,7 @@ router.get("/leads-source", authenticate, async (req, res) => {
    3. Job Position Analytics
 ======================================== */
 
-router.get("/job-positions", authenticate, async (req, res) => {
+router.get("/job-positions",  async (req, res) => {
   try {
     const range = req.query.range || "month";
     const startDate = getStartDate(range);
@@ -132,7 +132,7 @@ router.get("/job-positions", authenticate, async (req, res) => {
    4. Demo Interest Demand
 ======================================== */
 
-router.get("/demo-interests", authenticate, async (req, res) => {
+router.get("/demo-interests",  async (req, res) => {
   try {
     const range = req.query.range || "month";
     const startDate = getStartDate(range);
@@ -159,7 +159,7 @@ router.get("/demo-interests", authenticate, async (req, res) => {
    5. Recent Admin Activity
 ======================================== */
 
-router.get("/recent-activity", authenticate, async (req, res) => {
+router.get("/recent-activity", async (req, res) => {
   try {
     const logs = await AuditLog.find()
       .sort({ createdAt: -1 })
@@ -183,7 +183,7 @@ router.get("/recent-activity", authenticate, async (req, res) => {
    6. Log Analytics Interaction
 ======================================== */
 
-router.post("/log", authenticate, async (req, res) => {
+router.post("/log", async (req, res) => {
   try {
     const { action } = req.body;
 

@@ -99,7 +99,7 @@ router.post("/", async (req, res) => {
    GET
 ========================================================= */
 // GET WITH PAGINATION
-router.get("/", authenticate, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 15;
