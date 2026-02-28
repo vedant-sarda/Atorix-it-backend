@@ -256,7 +256,7 @@ router.post("/", upload.single("resume"), async (req, res) => {
           company: req.body.currentCompany?.trim() || '',
           role:    req.body.position.trim(),
           source:  'job_application',
-          status:  'New Application',
+          status:  'new',
           type:    'Job Application'
         });
         await lead.save();
