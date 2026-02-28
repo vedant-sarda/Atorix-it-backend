@@ -29,6 +29,8 @@ import activityRoutes from './routes/activity.js';
 import employeesRoute from "./routes/employees.js";
 import leavesRoute from "./routes/leaves.js";
 
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -73,7 +75,7 @@ const corsOptions = {
   preflightContinue: false,
   maxAge: 86400,
 };
-
+app.use('/api/activity', activityRoutes);
 // --- MIDDLEWARE ---
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
@@ -267,6 +269,7 @@ app.get('/api/hiring-leads/count', async (req, res) => {
   }
 });
 
+{/*
 // --- GET DEMO REQUESTS ---
 app.get('/api/demo-requests', async (req, res) => {
   try {
@@ -292,6 +295,7 @@ app.get('/api/demo-requests', async (req, res) => {
     return res.status(500).json({ success: false, message: 'Server error while fetching demo requests', error: error.message, data: [] });
   }
 });
+*/}
 
 // --- POST NEW HIRING LEAD ---
 app.post('/api/hiring-leads', async (req, res) => {
