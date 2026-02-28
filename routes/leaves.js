@@ -2,6 +2,7 @@ import express from "express";
 import Leave from "../models/Leave.js";
 import Employee from "../models/Employee.js";
 import { sendLeaveApprovalMail } from "../services/mailService.js";
+import  { authenticate }  from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -115,7 +116,7 @@ router.get("/:id", async (req, res) => {
 //////////////////////////////////////////////////////
 // UPDATE LEAVE
 //////////////////////////////////////////////////////
-router.put("/:id", async (req, res) => {
+router.put("/:id", authenticate, async (req, res) => {
   try {
     const {
       leaveType,

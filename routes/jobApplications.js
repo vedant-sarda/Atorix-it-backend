@@ -9,7 +9,7 @@ import { v2 as cloudinary } from 'cloudinary';
 import nodemailer from 'nodemailer';
 
 import { logAction } from '../utils/auditLogger.js';
-import { authenticate } from '../middleware/auth.js';
+import  { authenticate }  from '../middleware/auth.js';
 // HR-dashboard
 import Employee from "../models/Employee.js";
 import JobApplication from "../models/JobApplication.js";
@@ -21,7 +21,7 @@ const __dirname = path.dirname(__filename);
 
 const router = express.Router();
 
-router.use(authenticate);
+//router.use(authenticate);
 
 // ─── Cloudinary Configuration ─────────────────────────────────────────────────
 cloudinary.config({
@@ -339,7 +339,7 @@ router.get("/", async (req, res) => {
 });
 
 // PATCH - Update status (with auto employee creation on hired)
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", authenticate, async (req, res) => {
   try {
     const oldCandidate = await JobApplication.findById(req.params.id);
 
@@ -442,7 +442,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE - Delete job application and linked employee
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticate, async (req, res) => {
   try {
     const { id } = req.params;
     console.log("Deleting candidate ID:", id);
@@ -494,7 +494,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 // VIEW single job application
-router.post("/:id/view", async (req, res) => {
+router.post("/:id/view", authenticate, async (req, res) => {
   try {
     const app = await JobApplication.findById(req.params.id);
 
