@@ -1,0 +1,45 @@
+{
+  "name": "atorix-it-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Atorix IT website",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start:main": "node server.js",
+    "start:blog": "node blog-server.js"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
+    "axios": "^1.13.5",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^1.20.2",
+    "class-variance-authority": "^0.7.1",
+    "cloudinary": "^2.9.0",
+    "clsx": "^2.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "formidable": "^3.5.4",
+    "googleapis": "^171.4.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.555.0",
+    "mongoose": "^7.8.7",
+    "multer": "^2.0.2",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^7.0.13",
+    "recharts": "^3.7.0",
+    "streamifier": "^0.1.1",
+    "tailwind-merge": "^3.4.0",
+    "twilio": "^5.12.1",
+    "uuid": "^13.0.0",
+    "ws": "^8.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
