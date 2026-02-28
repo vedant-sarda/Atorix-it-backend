@@ -174,7 +174,7 @@ router.post('/reset-password', async (req, res) => {
 
     // Verify token
     const decoded = jwt.verify(token, JWT_SECRET);
-    const user = await AdminUser.findById(decoded.id);
+    const user = await AdminUser.findById(decoded.userId);
 
     if (!user) {
       return res.status(400).json({
@@ -216,7 +216,7 @@ router.get('/verify', async (req, res) => {
     }
 
     const decoded = jwt.verify(token, JWT_SECRET);
-    const user = await AdminUser.findById(decoded.id).select('-passwordHash');
+    const user = await AdminUser.findById(decoded.userId).select('-passwordHash');
 
     if (!user) {
       return res.status(401).json({
